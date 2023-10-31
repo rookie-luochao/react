@@ -9,7 +9,7 @@ export interface IConfig {
 
 export function getConfig(): IConfig {
   const mateEnv = import.meta.env;
-  const processEnv = globalThis?.process?.env;
+  const processEnv = process?.env;
   const defaultAppConfig = {
     appName: mateEnv?.appName || processEnv?.appName || "",
     version: mateEnv?.version || processEnv?.version || "",
