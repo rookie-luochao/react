@@ -8,18 +8,20 @@ export interface IConfig {
 }
 
 export function getConfig(): IConfig {
-  const env = import.meta.env;
+  const mateEnv = import.meta.env;
+  const processEnv = globalThis?.process?.env;
   const defaultAppConfig = {
-    appName: env?.appName || "",
-    version: env?.version || "",
-    env: env?.env || "",
-    baseURL: env?.baseURL || "",
+    appName: mateEnv?.appName || processEnv?.appName || "",
+    version: mateEnv?.version || processEnv?.version || "",
+    env: mateEnv?.env || processEnv?.env || "",
+    baseURL: mateEnv?.baseURL || processEnv?.baseURL || "",
   };
-  console.log("metaEnv", import.meta.env);
+  console.log("metaEnv", mateEnv);
+  console.log("processEnv", processEnv);
 
   // 本地开发环境直接从根目录config文件读取, ci环境直接从mate标签读取, 通过容器环境变量写入html的mate标签
   // mate标签name为：app_config, content格式为：appName=webapp,baseURL=https://api.com
-  if (env.DEV) {
+  if (mateEnv.DEV) {
     return appConfig;
   } else {
     const appConfigStr = getMeta("app_config");
