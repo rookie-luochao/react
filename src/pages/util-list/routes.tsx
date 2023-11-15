@@ -1,16 +1,21 @@
-import { RequestDemo } from "./request/RequestDemo";
+import { RequestPage } from "./request";
+import { UUIDPage } from "./uuid";
 
 export const utilListModuleName = "util-list";
-export const utilListModuleNameDefaultPath = "request";
 
 export const utilListRoutes = {
   path: utilListModuleName,
   id: "工具",
   children: [
     {
-      path: utilListModuleNameDefaultPath,
+      path: "request",
       id: "请求示例",
-      element: <RequestDemo />,
+      element: <RequestPage />,
+    },
+    {
+      path: "uuid",
+      id: "UUID生成器",
+      element: <UUIDPage />,
     },
   ],
 };

@@ -8,7 +8,7 @@ import { BuildOutlined, DashboardOutlined, ToolOutlined } from "@ant-design/icon
 import { Dictionary, parseQueryString } from "../core/router/utils";
 import { ReactNode, useEffect, useMemo, useState } from "react";
 import { find } from "lodash-es";
-import { appRoutes } from "../routes";
+import { appRoutes } from "../rootRoutes";
 import { mainLayoutPath } from "./routes";
 import { getMenus } from "./utils";
 import { flexCenterOpts } from "../core/style/utils";

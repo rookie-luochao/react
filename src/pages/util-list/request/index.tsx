@@ -5,7 +5,7 @@ import { HelloGet } from "../../../api/hello";
 import { useState } from "react";
 import { sample } from "lodash-es";
 
-export function RequestDemo() {
+export function RequestPage() {
   const getRequestDemo = `
   ~~~js
     // HelloGet是一个基于axios的promise请求
