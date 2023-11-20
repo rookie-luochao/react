@@ -1,3 +1,4 @@
+import { CSSObject } from "@emotion/react";
 import { Property } from "csstype";
 
 interface IFlexOptions {
@@ -10,15 +11,24 @@ interface IFlexOptions {
   alignContent?: Property.AlignContent;
 }
 
-export const flexOpts = (flexOpts: IFlexOptions = {}) => ({
+export const flexOpts = (flexOpts: IFlexOptions = {}): CSSObject => ({
   display: "flex",
   ...flexOpts,
 });
 
-export const flexCenterOpts = (arg: IFlexOptions = {}) => {
+export const flexCenterOpts = (arg: IFlexOptions = {}): CSSObject => {
   return {
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
+    ...arg,
+  };
+};
+
+export const flexBetweenCenterOpts = (arg: IFlexOptions = {}): CSSObject => {
+  return {
+    display: "flex",
+    justifyContent: "space-between",
     alignItems: "center",
     ...arg,
   };

@@ -1,6 +1,7 @@
-import { mainLayoutFullPath } from "../mainLayout/routes";
+import { mainLayoutPath } from "../mainLayout/routes";
+import { dashboardModuleName } from "../pages/module/routes";
 
-export const defaultLinkPath = `${mainLayoutFullPath}/dashboard`;
+export const defaultLinkPath = `/${mainLayoutPath}/${dashboardModuleName}`;
 
 export const defaultUserInfo = {
   username: "admin",
