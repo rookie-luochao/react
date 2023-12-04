@@ -1,4 +1,5 @@
 import { ColorPage } from "./color";
+import { URLEncodePage } from "./encode";
 import { RequestPage } from "./request";
 import { UUIDPage } from "./uuid";
 
@@ -22,6 +23,11 @@ export const utilListRoutes = {
       path: "color",
       id: "颜色转换器",
       element: <ColorPage />,
+    },
+    {
+      path: "encode",
+      id: "URL Encode",
+      element: <URLEncodePage />,
     },
   ],
 };

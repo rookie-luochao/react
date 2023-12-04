@@ -13,7 +13,7 @@ import { mainLayoutPath } from "./routes";
 import { getMenus } from "./utils";
 import { flexCenterOpts } from "../core/style/utils";
 import { useNavigate } from "react-router-dom";
-import { dashboardModuleName } from "../pages/module/routes";
+import { dashboardModuleName } from "../pages/dashboard/routes";
 import { utilListModuleName } from "../pages/util-list/routes";
 import { jsonModuleName } from "../pages/json/routes";
 

@@ -1,5 +1,5 @@
 import { mainLayoutPath } from "../mainLayout/routes";
-import { dashboardModuleName } from "../pages/module/routes";
+import { dashboardModuleName } from "../pages/dashboard/routes";
 
 export const defaultLinkPath = `/${mainLayoutPath}/${dashboardModuleName}`;
 
