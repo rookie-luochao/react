@@ -14,7 +14,8 @@ export function URLEncodePage() {
   const [value, setValue] = useState("");
   const [targetValue, setTargetValue] = useState("");
   const [actionType, setActionType] = useState(ActionType.decodeURIComponent);
-  const isDecodeEnum = includes(decodeEnum, actionType)
+  const isDecodeEnum = includes(decodeEnum, actionType);
+  const placeholder = `请输入${isDecodeEnum ? "解码" : "编码"}字符串`;
 
   const actionTypeOptions = useMemo(() => {
     return map(ActionType, item => ({
@@ -25,7 +26,7 @@ export function URLEncodePage() {
 
   const submit = () => {
     if (!value) {
-      return message.warning(`请输入${isDecodeEnum ? "解码" : "编码"}字符串`);
+      return message.warning(placeholder);
     }
 
     switch (actionType) {
@@ -49,7 +50,7 @@ export function URLEncodePage() {
   return (
     <div>
       <div css={{ marginBottom: 16 }}>
-        <Input.TextArea rows={10} value={value} onChange={(e) => setValue(e.target?.value)} />
+        <Input.TextArea placeholder={placeholder} rows={13} value={value} onChange={(e) => setValue(e.target?.value)} />
       </div>
       <div css={[flexCenterOpts(), { marginBottom: 16, "& > * + *": { marginLeft: 8 } }]}>
         <Select
@@ -77,7 +78,7 @@ export function URLEncodePage() {
         </Button>
       </div>
       <div>
-        <Input.TextArea rows={10} value={targetValue} />
+        <Input.TextArea rows={13} value={targetValue} />
       </div>
     </div>
   )

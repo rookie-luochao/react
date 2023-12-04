@@ -5,6 +5,7 @@ import { fromEvent, throttleTime } from "rxjs";
 import Sider from "antd/es/layout/Sider";
 import { dsc } from "../core/style/defaultStyleConfig";
 import { Logo, MenuComp, ToolBar } from "./MainLayoutComp";
+import { SitePvCountComp, sitePvCountCompHeight } from "../component/size-pv-count";
 
 export function MainLayout() {
   const [collapsed, setCollapsed] = useState(false);
@@ -41,19 +42,25 @@ export function MainLayout() {
         <Logo inlineCollapsed={collapsed} />
         <MenuComp />
       </Sider>
-      <Layout className="site-layout" css={{ backgroundColor: dsc.color.bg }}>
+      <Layout 
+        className="site-layout"
+        css={{ 
+          paddingBottom: 24,
+          position: "relative",
+        }}>
         <ToolBar />
         <div
           css={{
             padding: 24,
             backgroundColor: dsc.color.bgGray,
             overflow: "scroll",
-            height: menuHeight - defaultMenuTitleHeight,
+            height: menuHeight - defaultMenuTitleHeight - sitePvCountCompHeight,
             borderRadius: "10px 0 0",
           }}
         >
           <Outlet />
         </div>
+        <SitePvCountComp />
       </Layout>
     </Layout>
   );
