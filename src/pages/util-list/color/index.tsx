@@ -2,6 +2,7 @@ import { Button, Card, Input, Space } from "antd";
 import { useState } from "react";
 import { HexToRgb, RgbToHex } from "./util";
 import copy from "copy-to-clipboard";
+import SourceCodeUrlComp from "../../../core/github";
 
 export function ColorPage() {
   const [rgbValue, setRgbValue] = useState("");
@@ -14,7 +15,10 @@ export function ColorPage() {
       <Card 
         title="RGB转十六进制"
         extra={
-          <Button onClick={() => copy(hexValue)}>拷贝</Button>
+          <>
+            <Button onClick={() => copy(hexValue)}>拷贝</Button>
+            <SourceCodeUrlComp />
+          </>
         }
       >
         <div css={{ display: "flex", alignItems: "center", marginBottom: 10 }}>
@@ -30,7 +34,10 @@ export function ColorPage() {
       <Card 
         title="十六进制转RGB"
         extra={
-          <Button onClick={() => copy(rgbValue2)}>拷贝</Button>
+          <>
+            <Button onClick={() => copy(rgbValue2)}>拷贝</Button>
+            <SourceCodeUrlComp />
+          </>
         }
       >
         <div css={{ display: "flex", alignItems: "center", marginBottom: 10 }}>

@@ -4,6 +4,7 @@ import { flexCenterOpts } from "../../core/style/utils";
 import JsonView from 'react-json-view'
 import { Dictionary } from "../../core/router/utils";
 import { dsc } from "../../core/style/defaultStyleConfig";
+import SourceCodeUrlComp from "../../core/github";
 
 export function JsonHome() {
   const [value, setValue] = useState("");
@@ -22,7 +23,7 @@ export function JsonHome() {
       <div css={{ marginBottom: 16 }}>
         <Input.TextArea rows={20} value={value} onChange={(e) => setValue(e.target?.value)} />
       </div>
-      <div css={[flexCenterOpts(), { marginBottom: 16 }]}>
+      <div css={[flexCenterOpts(), { marginBottom: 16, "& > * + *": { marginLeft: 8 } }]}>
         <Button 
           type="primary"
           onClick={() => {
@@ -31,6 +32,7 @@ export function JsonHome() {
         >
           格式化
         </Button>
+        <SourceCodeUrlComp />
       </div>
       <div css={{ backgroundColor: dsc.color.bg, padding: 8 }}>
         <JsonView src={formatValue} />

@@ -1,31 +1,26 @@
-import Markdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Card } from "antd";
+import { CodeMarkDown } from "./Comp";
+import SourceCodeUrlComp from "../../../core/github";
 
-export function CodeMarkDown({ dataSource }: { dataSource: string }) {
+export function MarkdownCodePage() {
+  const markdown = `
+  ~~~js
+    console.log('It works!')
+
+    function demo() {
+      console.log('this is demo func!')
+    }
+  ~~~
+  `;
+
   return (
-    <Markdown
-      children={dataSource}
-      components={{
-        code(props) {
-          const { children, className, ...rest } = props;
-          const match = /language-(\w+)/.exec(className || "");
-
-          return match ? (
-            <SyntaxHighlighter
-              {...(rest as any)}
-              children={String(children).replace(/\n$/, "")}
-              style={dracula}
-              language={match[1]}
-              PreTag="div"
-            />
-          ) : (
-            <code {...rest} className={className}>
-              {children}
-            </code>
-          );
-        },
-      }}
-    />
+    <Card
+      title="基于markdown语法的代码块展示器"
+      extra={
+        <SourceCodeUrlComp />
+      }
+    >
+      <CodeMarkDown dataSource={markdown} />
+    </Card>
   );
 }

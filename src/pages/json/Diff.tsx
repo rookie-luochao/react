@@ -5,6 +5,7 @@ import { DiffComp } from "./Comp";
 import { Dictionary } from "../../core/router/utils";
 import { isEmpty } from "lodash-es";
 import { dsc } from "../../core/style/defaultStyleConfig";
+import SourceCodeUrlComp from "../../core/github";
 
 export function DiffPage() {
   const [oldValueStr, setOldValueStr] = useState("");
@@ -49,15 +50,14 @@ export function DiffPage() {
           />
         </div>
       </div>
-      <div css={[flexCenterOpts(), { height: 60 }]}>
+      <div css={[flexCenterOpts(), { height: 60, "& > * + *": { marginLeft: 8 } }]}>
         <Button 
           type="primary"
           onClick={submit}
         >
           对比
         </Button>
-        <Button 
-          style={{ marginLeft: 8 }}
+        <Button
           onClick={() => {
             setOldValueStr("");
             setOldValue({});
@@ -67,6 +67,7 @@ export function DiffPage() {
         >
           清空
         </Button>
+        <SourceCodeUrlComp notIndexFile />
       </div>
       <div css={{ backgroundColor: dsc.color.bg, minHeight: 100, borderRadius: 6, padding: 12 }}>
         {!isEmpty(oldValue) && !isEmpty(newValue) ? (

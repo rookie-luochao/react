@@ -2,6 +2,7 @@ import { Button, Input, Select, message } from "antd";
 import { includes, map, pick } from "lodash-es";
 import { useMemo, useState } from "react";
 import { flexCenterOpts } from "../../../core/style/utils";
+import SourceCodeUrlComp from "../../../core/github";
 
 export function URLEncodePage() {
   enum ActionType {
@@ -76,6 +77,7 @@ export function URLEncodePage() {
         >
           清空
         </Button>
+        <SourceCodeUrlComp />
       </div>
       <div>
         <Input.TextArea rows={13} value={targetValue} />
