@@ -5,7 +5,7 @@ import { fromEvent, throttleTime } from "rxjs";
 import Sider from "antd/es/layout/Sider";
 import { dsc } from "../core/style/defaultStyleConfig";
 import { Logo, MenuComp, ToolBar } from "./MainLayoutComp";
-import { SitePvCountComp, sitePvCountCompHeight } from "../component/size-pv-count";
+import { SitePvCountComp, sitePvCountCompHeight } from "../component/site-pv-count";
 
 export function MainLayout() {
   const [collapsed, setCollapsed] = useState(false);
