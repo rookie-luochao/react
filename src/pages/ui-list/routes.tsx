@@ -1,3 +1,4 @@
+import { ListPage } from "./list";
 import { MarkdownCodePage } from "./markdown";
 import { DragTablePage } from "./table";
 
@@ -11,6 +12,11 @@ export const uiListRoutes = {
       path: "table",
       id: "拖拽列排序表格",
       element: <DragTablePage />,
+    },
+    {
+      path: "list",
+      id: "列表",
+      element: <ListPage />,
     },
     {
       path: "markdown",

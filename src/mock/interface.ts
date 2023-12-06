@@ -8,6 +8,7 @@ export interface IPersonBasicInfo {
   maritalStatus: string;
   income: number;
   birthplace: string;
+  birthday: string;
 }
 
 export interface IPersonOtherInfo {

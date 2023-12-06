@@ -5,7 +5,7 @@ import LogoMiniIcon from "../assets/images/logo_mini.svg";
 import LogoIcon from "../assets/images/logo.svg";
 import { uiListModuleName } from "../pages/ui-list/routes";
 import { BuildOutlined, DashboardOutlined, FormatPainterOutlined, ToolOutlined } from "@ant-design/icons";
-import { Dictionary, parseQueryString } from "../core/router/utils";
+import { Dictionary, parseQueryString } from "react-router-toolkit";
 import { ReactNode, useEffect, useMemo, useState } from "react";
 import { find, map } from "lodash-es";
 import { appRoutes } from "../rootRoutes";
@@ -39,7 +39,7 @@ export function MenuComp({ isExpandAllMenu = false }: { isExpandAllMenu?: boolea
         queryObj = parseQueryString(query);
       }
       if (queryObj && queryObj[globalHiddenInMenuParentPath]) {
-        menuActivePath = queryObj[globalHiddenInMenuParentPath];
+        menuActivePath = queryObj[globalHiddenInMenuParentPath] as string;
       }
       setMenuActivePath([menuActivePath]);
     }
