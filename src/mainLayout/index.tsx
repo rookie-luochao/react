@@ -40,7 +40,7 @@ export function MainLayout() {
         onCollapse={setCollapsed}
       >
         <Logo inlineCollapsed={collapsed} />
-        <MenuComp />
+        <MenuComp isExpandAllMenu />
       </Sider>
       <Layout 
         className="site-layout"

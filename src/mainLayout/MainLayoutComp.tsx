@@ -7,7 +7,7 @@ import { uiListModuleName } from "../pages/ui-list/routes";
 import { BuildOutlined, DashboardOutlined, FormatPainterOutlined, ToolOutlined } from "@ant-design/icons";
 import { Dictionary, parseQueryString } from "../core/router/utils";
 import { ReactNode, useEffect, useMemo, useState } from "react";
-import { find } from "lodash-es";
+import { find, map } from "lodash-es";
 import { appRoutes } from "../rootRoutes";
 import { mainLayoutPath } from "./routes";
 import { getMenus } from "./utils";
@@ -19,7 +19,7 @@ import { jsonModuleName } from "../pages/json/routes";
 
 export const globalHiddenInMenuParentPath = "globalHiddenInMenuParentPath";
 
-export function MenuComp() {
+export function MenuComp({ isExpandAllMenu = false }: { isExpandAllMenu?: boolean }) {
   const defaultMenuActivePath = `/${mainLayoutPath}/${dashboardModuleName}`;
   const [menuActivePath, setMenuActivePath] = useState([defaultMenuActivePath]);
   const pathname = document.location.pathname;
@@ -52,13 +52,18 @@ export function MenuComp() {
     [jsonModuleName]: <FormatPainterOutlined />
   } as Dictionary<ReactNode>;
 
-  const menuItems = useMemo(() => {
+  const [menuItems, menuOpenKeys] = useMemo(() => {
     const mainRoutes = find(appRoutes[0].children, (route) => route.path === mainLayoutPath);
-    return getMenus({
-      routes: mainRoutes?.children || [],
-      modulePathToIconMap,
-      to: `/${mainLayoutPath}`,
-    });
+    const menuOpenKeys = map(mainRoutes?.children, item => `/${mainRoutes?.path}/${item.path}`);
+
+    return [
+      getMenus({
+        routes: mainRoutes?.children || [],
+        modulePathToIconMap,
+        to: `/${mainLayoutPath}`,
+      }),
+      menuOpenKeys,
+    ];
   }, []);
 
   return (
@@ -66,7 +71,7 @@ export function MenuComp() {
       theme={"light"}
       mode="inline"
       selectedKeys={menuActivePath}
-      defaultOpenKeys={[menuOpenKey]}
+      defaultOpenKeys={isExpandAllMenu ? menuOpenKeys : [menuOpenKey]}
       onSelect={({ key }) => {
         setMenuActivePath([key]);
       }}
@@ -80,7 +85,7 @@ export const Logo = ({ inlineCollapsed }: { inlineCollapsed?: boolean }) => {
     <div
       className="logo"
       css={{
-        height: 80,
+        height: 64,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
