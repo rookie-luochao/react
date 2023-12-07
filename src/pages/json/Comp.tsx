@@ -1,5 +1,5 @@
 import { create, formatters } from "jsondiffpatch";
-import { Dictionary } from "../../core/router/utils";
+import { Dictionary } from "react-router-toolkit";
 import "jsondiffpatch/dist/formatters-styles/html.css";
 
 export function DiffComp({

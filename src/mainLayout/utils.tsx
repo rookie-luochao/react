@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Dictionary } from "../core/router/utils";
+import { Dictionary } from "react-router-toolkit";
 import { map, startsWith } from "lodash-es";
 import { MenuProps } from "antd";
 import { Link, RouteObject } from "react-router-dom";

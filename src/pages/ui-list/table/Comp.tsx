@@ -5,7 +5,7 @@ import { omit, isNumber, map } from "lodash-es";
 import { Table } from "antd";
 import { SizeType } from "antd/lib/config-provider/SizeContext";
 import { TableProps } from "antd/lib/table";
-import { Dictionary } from "../../../core/router/utils";
+import { Dictionary } from "react-router-toolkit";
 
 const type = "DragableColumn";
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Input } from "antd";
 import { flexCenterOpts } from "../../core/style/utils";
 import JsonView from 'react-json-view'
-import { Dictionary } from "../../core/router/utils";
+import { Dictionary } from "react-router-toolkit";
 import { dsc } from "../../core/style/defaultStyleConfig";
 import SourceCodeUrlComp from "../../core/github";
 
