@@ -98,14 +98,15 @@ export const Logo = ({ inlineCollapsed }: { inlineCollapsed?: boolean }) => {
 
 const UserName = () => {
   const { loginInfo } = useLoginStore((state) => state);
+  const name = loginInfo?.name || "无姓名";
 
   return (
     <div css={{ display: "flex", alignItems: "center" }}>
       <Avatar shape="square" style={{ backgroundColor: dsc.color.primary, verticalAlign: "middle", borderRadius: 4 }}>
-        {loginInfo?.name?.slice(0, 1)}
+        {name.slice(0, 1)}
       </Avatar>
       {loginInfo ? (
-        <div css={{ color: dsc.color.text, fontSize: dsc.fontSize.s, padding: "0em 0.6em" }}>{loginInfo?.name}</div>
+        <div css={{ color: dsc.color.text, fontSize: dsc.fontSize.s, padding: "0em 0.6em" }}>{name}</div>
       ) : null}
     </div>
   );
@@ -176,7 +177,7 @@ export function ToolBar() {
             ],
           }}
         >
-          <a onClick={(e) => e.preventDefault()}>
+          <a style={{ marginLeft: 6 }} onClick={(e) => e.preventDefault()}>
             <IconDown />
           </a>
         </Dropdown>

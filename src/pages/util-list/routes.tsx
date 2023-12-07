@@ -10,14 +10,9 @@ export const utilListRoutes = {
   id: "工具",
   children: [
     {
-      path: "request",
-      id: "请求示例",
-      element: <RequestPage />,
-    },
-    {
-      path: "uuid",
-      id: "UUID生成器",
-      element: <UUIDPage />,
+      path: "encode",
+      id: "URL Encode",
+      element: <URLEncodePage />,
     },
     {
       path: "color",
@@ -25,9 +20,14 @@ export const utilListRoutes = {
       element: <ColorPage />,
     },
     {
-      path: "encode",
-      id: "URL Encode",
-      element: <URLEncodePage />,
+      path: "uuid",
+      id: "UUID生成器",
+      element: <UUIDPage />,
+    },
+    {
+      path: "request",
+      id: "请求示例",
+      element: <RequestPage />,
     },
   ],
 };
